@@ -13,12 +13,16 @@ module.exports = function (app) {
     app.get("/api/friends", function (req, res) {
         res.json(objFriends);
     });
-    // TODO POST routes to "api/friends". This will be used to handle incoming survey results. Also used for handling compatibility logic
+    // TODO POST routes to "api/friends". This will be used to handle incoming survey results. 
+    // Also used for handling compatibility logic
     app.post("/api/friends", function (req, res) {
         var body = req.body;
+        objFriends.push(body);
+        console.log(body);
         res.json({
             "success": true,
-            "data": body
+            "data": body,
+            "object": objFriends
         });
     });
 };
