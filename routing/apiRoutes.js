@@ -15,7 +15,10 @@ module.exports = function (app) {
     });
     // TODO POST routes to "api/friends". This will be used to handle incoming survey results. Also used for handling compatibility logic
     app.post("/api/friends", function (req, res) {
-        objFriends.push(req.body)
-        res.json(objFriends);
+        var body = req.body;
+        res.json({
+            "success": true,
+            "data": body
+        });
     });
 };
